@@ -1,5 +1,5 @@
 from rest_framework import generics
-from riverproj.product.serializers import ProductSerializer
+from .serializers import ProductSerializer
 from .models import Product
 
 
