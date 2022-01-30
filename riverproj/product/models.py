@@ -10,7 +10,7 @@ class Category(models.Model):
 
     name = models.CharField(max_length=1024, unique=True, blank=False)
     def __str__(self):
-        return f"({self.pk}) {name}"
+        return f"({self.pk}) {self.name}"
 
 class Product(models.Model):
     class Meta:
@@ -40,6 +40,7 @@ class CategoryLink(models.Model):
         ordering = ['category', 'product']
     product = models.ForeignKey("Product", on_delete=models.DO_NOTHING)
     category = models.ForeignKey("Category", on_delete=models.DO_NOTHING)
-
+    def __str__(self):
+        return f"{self.product}: {self.category}"
 
 
