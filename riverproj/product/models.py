@@ -28,7 +28,6 @@ class Product(models.Model):
     def category_names(self):
         return (cat.name for cat in self.categories.all())
 
-
     def __str__(self):
         return self.name
 
