@@ -20,3 +20,8 @@ class ProductSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(f"Count of categories = {len(value)}. It's not in from 2 to 10 range")
         return value
 
+    def validate_price(self, value):
+        if not (-1 < value < 1000000):
+            raise serializers.ValidationError(f"Price {value} not correct (0<=price<=1000000)")
+        return value
+
